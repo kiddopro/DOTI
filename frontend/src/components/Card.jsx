@@ -8,9 +8,14 @@ const Card = ({ task }) => {
   const { remove } = useDeleteTask();
 
   const handleDelete = async () => {
-    const response = await remove(id);
-    alert("Task deleted!");
-    return response;
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+    if (isConfirmed) {
+      const response = await remove(id);
+      alert("Task deleted!");
+      return response;
+    }
   };
 
   return (
