@@ -1,18 +1,14 @@
 import "../styles/home-page.css";
 import SideBar from "../layouts/SideBar.jsx";
-import Card from "../components/Card.jsx";
-
+import TaskList from "../components/TaskList.jsx";
+import Header from "./Header.jsx";
 const HomePage = () => {
   return (
     <div className="home-page">
       <SideBar />
       <div className="content">
-        <Card
-          title={"Task 1"}
-          description={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex."
-          }
-        />
+        <Header />
+        <TaskList />
       </div>
     </div>
   );

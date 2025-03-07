@@ -1,6 +1,7 @@
 import "../styles/card.css";
 
-const Card = ({ title, description }) => {
+const Card = ({ title, description, done, archived, createdAt }) => {
+  const completed = done ? "completed" : "incompleted";
   return (
     <div className="card">
       <div className="main-section">
@@ -8,11 +9,21 @@ const Card = ({ title, description }) => {
         <p>{description}</p>
       </div>
       <footer>
-        <span>Done</span>
+        <span
+          className={completed}
+          style={{
+            color: "#fff",
+            backgroundColor: done ? "green" : "orange",
+            padding: "3px 10px",
+            borderRadius: "12px",
+          }}
+        >
+          {completed}
+        </span>
         <div className="icons">
-          <span>X</span>
-          <span>Y</span>
-          <span>Z</span>
+          <i class="fa-solid fa-box-archive"></i>
+          <i class="fa-solid fa-trash"></i>
+          <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
       </footer>
     </div>

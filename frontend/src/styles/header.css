@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+
+.header-search {
+  background-color: #1a253a;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 50px;
+  color: #94a3b8;
+  display: flex;
+  position: relative;
+  align-items: center;
+  outline: none;
+}
+
+.header-search::after {
+  content: "\f002";
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-left: 5px;
+}
+
+.header span {
+  color: #94a3b8;
+}
+
+.header .button-header {
+  padding: 15px 40px;
+}
