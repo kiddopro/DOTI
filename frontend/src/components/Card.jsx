@@ -39,10 +39,15 @@ const Card = ({ task }) => {
           {completed}
         </span>
         <div className="icons">
-          <i class="fa-solid fa-box-archive"></i>
-          <i class="fa-solid fa-trash" onClick={() => handleDelete(id)}></i>
+          <i class="fa-solid fa-box-archive" title="Archive"></i>
+          <i
+            class="fa-solid fa-trash"
+            title="Delete"
+            onClick={() => handleDelete(id)}
+          ></i>
           <i
             class="fa-solid fa-ellipsis-vertical"
+            title="Edit"
             onClick={() => openModal(task)}
           ></i>
         </div>

@@ -4,13 +4,15 @@ import useUpdateTask from "../hooks/useUpdateTask";
 import "../styles/modal.css";
 
 const Modal = ({ onClose, info }) => {
+  const hasInfo = info.title !== undefined;
+
   const [task, setTask] = useState({
-    title: info ? info.title : "",
-    description: info ? info.description : "",
+    title: hasInfo ? info.title : "",
+    description: hasInfo ? info.description : "",
   });
 
   useEffect(() => {
-    if (info) {
+    if (hasInfo) {
       setTask({
         title: info.title,
         description: info.description,
@@ -60,7 +62,7 @@ const Modal = ({ onClose, info }) => {
         <button className="close-button" onClick={onClose}>
           X
         </button>
-        <form onSubmit={info ? handleUpdate : handleSubmit}>
+        <form onSubmit={hasInfo ? handleUpdate : handleSubmit}>
           <input
             type="text"
             value={task.title}
@@ -74,7 +76,7 @@ const Modal = ({ onClose, info }) => {
             placeholder="Enter task description"
           />
           <br />
-          {info ? (
+          {hasInfo ? (
             <button type="submit" disabled={updateLoading}>
               {updateLoading ? "Updating..." : "Update Task"}
             </button>
