@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useCreateTask from "../hooks/useCreateTask";
 import useUpdateTask from "../hooks/useUpdateTask";
 import "../styles/modal.css";
@@ -8,6 +8,16 @@ const Modal = ({ onClose, info }) => {
     title: info ? info.title : "",
     description: info ? info.description : "",
   });
+
+  useEffect(() => {
+    if (info) {
+      setTask({
+        title: info.title,
+        description: info.description,
+      });
+    }
+  }, [info]);
+
   const { create, loading, error } = useCreateTask();
   const {
     update,
@@ -65,7 +75,7 @@ const Modal = ({ onClose, info }) => {
           />
           <br />
           {info ? (
-            <button type="submit" disabled={updateLoading} onClick={onClose}>
+            <button type="submit" disabled={updateLoading}>
               {updateLoading ? "Updating..." : "Update Task"}
             </button>
           ) : (
@@ -75,6 +85,7 @@ const Modal = ({ onClose, info }) => {
           )}
         </form>
         {error && <p>Error: {error.message}</p>}
+        {updateError && <p>Error: {updateError.message}</p>}
       </div>
     </div>
   );

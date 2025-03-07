@@ -5,14 +5,22 @@ const ModalContext = createContext();
 
 export const ModalProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [task, setTask] = useState(null);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openModal = (task = null) => {
+    setTask(task);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setTask(null);
+    setIsModalOpen(false);
+  };
 
   return (
-    <ModalContext.Provider value={{ isModalOpen, openModal, closeModal }}>
+    <ModalContext.Provider value={{ isModalOpen, openModal, closeModal, task }}>
       {children}
-      {isModalOpen && <Modal onClose={closeModal} />}
+      {isModalOpen && <Modal onClose={closeModal} info={task} />}
     </ModalContext.Provider>
   );
 };

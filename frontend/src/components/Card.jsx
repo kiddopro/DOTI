@@ -1,11 +1,13 @@
 import "../styles/card.css";
 import useDeleteTask from "../hooks/useDeleteTask.jsx";
+import { useModal } from "../contexts/ModalContext.jsx";
 
 const Card = ({ task }) => {
   const { title, description, done, id } = task;
   const completed = done ? "completed" : "incompleted";
 
   const { remove } = useDeleteTask();
+  const { openModal } = useModal();
 
   const handleDelete = async () => {
     const isConfirmed = window.confirm(
@@ -41,7 +43,7 @@ const Card = ({ task }) => {
           <i class="fa-solid fa-trash" onClick={() => handleDelete(id)}></i>
           <i
             class="fa-solid fa-ellipsis-vertical"
-            onClick={() => console.log(id)}
+            onClick={() => openModal(task)}
           ></i>
         </div>
       </footer>
