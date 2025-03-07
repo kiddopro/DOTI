@@ -1,26 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import useCreateTask from "../hooks/useCreateTask";
 import "../styles/modal.css";
 
-const Modal = ({ isOpen, onClose, onSubmit }) => {
-  if (!isOpen) return null;
+const Modal = ({ onClose }) => {
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+  });
+  const { create, loading, error } = useCreateTask();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const newTask = await create({
+        title: task.title,
+        description: task.description,
+      });
+      alert("Task Created!");
+      onClose();
+    } catch (err) {
+      console.error("Error creating task:", err);
+    }
+  };
 
   return (
     <div className="modal-overlay">
-      <div className="modal">
+      <div className="modal-content">
         <button className="close-button" onClick={onClose}>
-          &times;
+          X
         </button>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input type="text" id="title" name="title" required />
-        </div>
-        <div>
-          <label htmlFor="description">Description:</label>
-          <textarea id="description" name="description" required></textarea>
-        </div>
-        <button onClick={onSubmit} type="submit">
-          Add Task
-        </button>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={task.title}
+            onChange={(e) => setTask({ ...task, title: e.target.value })}
+            placeholder="Enter task title"
+          />
+          <br />
+          <textarea
+            value={task.description}
+            onChange={(e) => setTask({ ...task, description: e.target.value })}
+            placeholder="Enter task description"
+          />
+          <br />
+          <button type="submit" disabled={loading}>
+            {loading ? "Creating..." : "Create Task"}
+          </button>
+        </form>
+        {error && <p>Error: {error.message}</p>}
       </div>
     </div>
   );
