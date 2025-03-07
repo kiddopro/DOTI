@@ -18,7 +18,7 @@ const useTasks = () => {
       }
     };
     fetchTasks();
-  }, []);
+  }, [tasks]);
 
   return { tasks, loading, error };
 };

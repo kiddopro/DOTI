@@ -1,7 +1,18 @@
 import "../styles/card.css";
+import useDeleteTask from "../hooks/useDeleteTask.jsx";
 
-const Card = ({ title, description, done, archived, createdAt }) => {
+const Card = ({ task }) => {
+  const { title, description, done, id } = task;
   const completed = done ? "completed" : "incompleted";
+
+  const { remove } = useDeleteTask();
+
+  const handleDelete = async () => {
+    const response = await remove(id);
+    alert("Task deleted!");
+    return response;
+  };
+
   return (
     <div className="card">
       <div className="main-section">
@@ -22,8 +33,11 @@ const Card = ({ title, description, done, archived, createdAt }) => {
         </span>
         <div className="icons">
           <i class="fa-solid fa-box-archive"></i>
-          <i class="fa-solid fa-trash"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <i class="fa-solid fa-trash" onClick={() => handleDelete(id)}></i>
+          <i
+            class="fa-solid fa-ellipsis-vertical"
+            onClick={() => console.log(id)}
+          ></i>
         </div>
       </footer>
     </div>

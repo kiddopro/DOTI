@@ -13,7 +13,7 @@ const TaskList = () => {
   return (
     <div className="task-list">
       {tasks.map((task, index) => (
-        <Card key={index} title={task.title} description={task.description} />
+        <Card key={index} task={task} />
       ))}
       <ButtonAdd onClick={openModal} />
     </div>
