@@ -3,20 +3,20 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  height: 50px;
   margin-bottom: 50px;
 }
 
 .header-search {
+  width: fit-content !important;
   background-color: #1a253a;
-  border: none;
+  border: none !important;
   border-radius: 12px;
   padding: 15px 50px;
   color: #94a3b8;
   display: flex;
   position: relative;
   align-items: center;
-  outline: none;
+  outline: none !important;
 }
 
 .header-search::after {
