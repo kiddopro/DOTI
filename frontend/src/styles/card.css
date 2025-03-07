@@ -24,24 +24,10 @@
 
 .card footer {
   padding: 10px 15px 0px 15px;
-  border-top: 4px dotted #1d293e;
+  border-top: 4px dashed #1d293e;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.card footer span .completed {
-  background-color: rgb(61, 173, 39);
-  padding: 2px 30px;
-  font-size: 0.9rem;
-  border-radius: 99px;
-}
-
-.card footer span .incompleted {
-  background-color: rgb(196, 111, 27);
-  padding: 2px 30px;
-  font-size: 0.9rem;
-  border-radius: 99px;
 }
 
 .card footer .icons {
