@@ -1,0 +1,30 @@
+.sidebar h2 {
+  padding: 40px 0px;
+  text-align: center;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.sidebar .links {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar .links a {
+  text-decoration: none;
+  padding: 15px 20px;
+  color: #94a3b8;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar .links a:hover {
+  color: #fff;
+}
+
+.sidebar .links a.active {
+  color: #fff;
+  background-color: #1a253a;
+  border-right: 5px solid #fff;
+}

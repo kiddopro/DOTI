@@ -1,0 +1,26 @@
+.home-page {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(300px, 350px) 3fr;
+  grid-template-rows: 1fr 3fr;
+}
+
+.sidebar {
+  background-color: #141e33;
+  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonSection {
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  background-color: #0f172a;
+  grid-area: 1 / 2 / 3 / 3;
+  padding: 20px;
+}

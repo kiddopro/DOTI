@@ -1,0 +1,37 @@
+.card {
+  background-color: #141e33;
+  width: 270px;
+  height: 250px;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.card .main-section h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.card .main-section p {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.card footer {
+  padding-top: 10px;
+  border-top: 4px dotted #1d293e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card footer > span:nth-child(1):not(.icons) {
+  background-color: rgb(61, 173, 39);
+  padding: 5px 30px;
+  border-radius: 99px;
+}
