@@ -1,12 +1,14 @@
 import "../styles/card.css";
 import useDeleteTask from "../hooks/useDeleteTask.jsx";
 import { useModal } from "../contexts/ModalContext.jsx";
+import useUpdateTask from "../hooks/useUpdateTask.jsx";
 
 const Card = ({ task }) => {
-  const { title, description, done, id } = task;
+  const { title, description, done, id, archived } = task;
   const completed = done ? "completed" : "incompleted";
 
   const { remove } = useDeleteTask();
+  const { update } = useUpdateTask();
   const { openModal } = useModal();
 
   const handleDelete = async () => {
@@ -39,7 +41,11 @@ const Card = ({ task }) => {
           {completed}
         </span>
         <div className="icons">
-          <i class="fa-solid fa-box-archive" title="Archive"></i>
+          <i
+            class="fa-solid fa-box-archive"
+            title={archived ? "Unarchive" : "Archive"}
+            onClick={() => update({ id, archived: !archived })}
+          ></i>
           <i
             class="fa-solid fa-trash"
             title="Delete"
