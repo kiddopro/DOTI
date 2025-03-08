@@ -23,7 +23,8 @@
 }
 
 .card footer {
-  padding: 10px 15px 0px 15px;
+  width: 100%;
+  padding: 10px 0px 0px 0px;
   border-top: 4px dashed #1d293e;
   display: flex;
   justify-content: space-between;
@@ -32,7 +33,7 @@
 
 .card footer .icons {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .card footer .icons i {

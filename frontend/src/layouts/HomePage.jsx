@@ -16,8 +16,8 @@ const HomePage = () => {
   const filteredTasks = tasks.filter((task) => {
     if (activeLink === "all") return true;
     if (activeLink === "archived") return task.archived;
-    if (activeLink === "completed") return task.done;
-    if (activeLink === "incompleted") return !task.done;
+    if (activeLink === "completed") return task.done && !task.archived;
+    if (activeLink === "incompleted") return !task.done && !task.archived;
     return true;
   });
 

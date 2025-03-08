@@ -6,6 +6,7 @@ import useUpdateTask from "../hooks/useUpdateTask.jsx";
 const Card = ({ task }) => {
   const { title, description, done, id, archived } = task;
   const completed = done ? "completed" : "incompleted";
+  const isArchived = archived ? true : false;
 
   const { remove } = useDeleteTask();
   const { update } = useUpdateTask();
@@ -39,6 +40,16 @@ const Card = ({ task }) => {
           }}
         >
           {completed}
+        </span>
+        <span
+          style={{
+            color: "#fff",
+            backgroundColor: archived ? "#c6596d" : "skyblue",
+            padding: "3px 10px",
+            borderRadius: "12px",
+          }}
+        >
+          {isArchived ? "Archived" : "Active"}
         </span>
         <div className="icons">
           <i
