@@ -23,7 +23,7 @@
   color: #fff;
 }
 
-.sidebar .links a.active {
+.active {
   color: #fff;
   background-color: #1a253a;
   border-right: 5px solid #fff;

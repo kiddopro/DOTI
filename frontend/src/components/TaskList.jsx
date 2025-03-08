@@ -1,10 +1,9 @@
 import Card from "./Card.jsx";
 import "../styles/task-list.css";
-import useTasks from "../hooks/useTasks.jsx";
 import ButtonAdd from "./ButtonAdd.jsx";
 import { useModal } from "../contexts/ModalContext.jsx";
-const TaskList = () => {
-  const { tasks, loading, error } = useTasks();
+
+const TaskList = ({ tasks, loading, error }) => {
   const { openModal } = useModal();
 
   if (loading) return <p>Loading...</p>;
