@@ -23,8 +23,8 @@ Esta es una aplicación web de toma de notas que permite a los usuarios crear, e
 1. Clona el repositorio:
 
 ```sh
-git clone <URL_DEL_REPOSITORIO>
-cd <NOMBRE_DEL_REPOSITORIO>
+git clone git@github.com:kiddopro/DOTI.git
+cd DOTI
 ```
 
 2. Configura las variables de entorno:
